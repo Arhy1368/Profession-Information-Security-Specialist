@@ -24,16 +24,8 @@ ping -c 4 10.0.0.1
 ```
 
 Результат:
-```
-PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
-64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=0.5 ms
-64 bytes from 10.0.0.1: icmp_seq=2 ttl=64 time=0.3 ms
-64 bytes from 10.0.0.1: icmp_seq=3 ttl=64 time=0.4 ms
-64 bytes from 10.0.0.1: icmp_seq=4 ttl=64 time=0.2 ms
 
---- 10.0.0.1 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss
-```
+<img width="476" height="109" alt="image" src="https://github.com/user-attachments/assets/2bab2680-d0b0-4666-b761-e2f2f21aa516" />
 
 ✅ Связь есть — машины видят друг друга.
 
@@ -48,19 +40,11 @@ nmap -sV -p- 10.0.0.1
 ```
 
 Результат:
-```
-Starting Nmap 7.80 ( https://nmap.org ) at 2026-07-21 10:00
-Nmap scan report for 10.0.0.1
-Host is up (0.0005s latency).
-Not shown: 65533 closed ports
-PORT     STATE SERVICE VERSION
-22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.6
-8888/tcp open  http    (приложение "Защищенный контур")
-```
 
-✅ Обнаружены SSH и приложение на порту 8888.
+<img width="711" height="361" alt="image" src="https://github.com/user-attachments/assets/c80e5503-1644-4877-bfbd-78b50f8f6d31" />
 
----
+✅ Обнаружены: ELK Stack (Elasticsearch, Kibana, Logstash), nginx, SSH, основное приложение..
+
 
                                                           🔑 Шаг 2: Получение пароля администратора
 
