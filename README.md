@@ -377,7 +377,7 @@ sudo apt install sqlite3 -y
 sudo sqlite3 /opt/sk/data/users.db
 Внутри SQLite:
 `sql
-UPDATE users SET password = '<span style="color:#ffeb3b;">НОВЫЙ ПАРОЛЬ!</span>' WHERE username = 'admin';
+UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font> WHERE username = 'admin';
 .quit
 Вариант B: Через файл password.txt
 bash
