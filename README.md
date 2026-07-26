@@ -40,10 +40,10 @@
 
 | Машина | ОС | Роль | IP-адрес | Сеть |
 |--------|----|------|----------|------|
-| **Защищённый контур** | Ubuntu (OVA) | Сервер приложения | 192.168.0.1 | Внутренняя (intnet) |
+| Защищённый контур | Ubuntu (OVA) | Сервер приложения | 192.168.0.1 | Внутренняя (intnet) |
 <img width="1919" height="870" alt="Снимок экрана 2026-07-25 172717" src="https://github.com/user-attachments/assets/bbce1e92-39f6-41cc-8c9a-736d88c88192" />
 
-| **Kali Linux** | Kali 2024.x | Атакующий | 192.168.0.2 | Внутренняя (intnet) |
+| Kali Linux | Kali 2024.x | Атакующий | 192.168.0.2 | Внутренняя (intnet) |
 <img width="1919" height="950" alt="image" src="https://github.com/user-attachments/assets/30fc7718-f2da-4357-a2bb-361b513167d8" />
 
 
@@ -329,13 +329,79 @@ username=admin&password=f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
 ---
 
-📎 Доп.материал
+🖥️ 1. Доступ к операционной системе (Ubuntu)
+Параметр	Значение
+Логин	system
+Пароль	system (при первом входе система заставит сменить на более сложный)
+Команда смены пароля	passwd (после входа)
+Если пароль потерян — сбросьте через режим восстановления GRUB.
 
-- Файл пароля: `/opt/sk/password.txt`
-- Исполняемый файл: `/opt/sk/sk.bin`
-- Сервис: `sk.service`
-- IP-адрес сервера: `192.168.0.1`
-- Порт: `8888`
+🌐 2. Доступ к веб-приложению
+Параметр	Значение
+URL	http://192.168.0.1:8888
+Логин	admin
+Пароль	Хранится в файле /opt/sk/password.txt
+Как узнать пароль admin:
+bash
+cat /opt/sk/password.txt
+Пример вывода:
+text
+f38e440d-ac0d-480f-b674-81b8e7aa45d6
+Этот пароль генерируется автоматически при первом запуске приложения.
+
+🔧 3. Управление приложением
+Проверка статуса сервиса
+bash
+sudo systemctl status sk.service
+Запуск / остановка
+bash
+sudo systemctl start sk.service
+sudo systemctl stop sk.service
+sudo systemctl restart sk.service
+Проверка порта
+bash
+sudo ss -tulpn | grep 8888
+
+📁 4. Файлы приложения
+Файл	Назначение
+/opt/sk/password.txt	Пароль администратора (в открытом виде)
+/opt/sk/sk.bin	Исполняемый файл приложения
+/opt/sk/data/users.db	База данных пользователей (SQLite)
+/opt/sk/data/clients.db	База данных клиентов (SQLite)
+/opt/sk/static/	Статические файлы (CSS, JS)
+
+🛠️ 5. Если пароль admin потерян
+Вариант A: Через SQLite (если установлен)
+`bash
+sudo apt install sqlite3 -y
+sudo sqlite3 /opt/sk/data/users.db
+Внутри SQLite:
+`sql
+UPDATE users SET password = '<span style="color:#ffeb3b;">НОВЫЙ ПАРОЛЬ!</span>' WHERE username = 'admin';
+.quit
+Вариант B: Через файл password.txt
+bash
+sudo nano /opt/sk/password.txt
+Просто замените старый пароль на новый и сохраните.
+
+📋 6. Сводная таблица
+Доступ	Логин	Пароль
+ОС (Ubuntu)	system	Задаётся при первом входе
+Веб-приложение	admin	В /opt/sk/password.txt
+🚀 Проверка работоспособности
+Вход в ОС: system / пароль
+
+Проверка сервиса: sudo systemctl status sk.service
+
+Чтение пароля admin: cat /opt/sk/password.txt
+
+Вход в веб: http://192.168.0.1:8888 → admin / пароль
+
+❓ Частые вопросы
+Вопрос	Ответ
+Не могу войти в ОС	Используйте сброс через GRUB (режим восстановления)
+Не могу найти пароль admin	cat /opt/sk/password.txt или проверьте users.db
+Страница не открывается	Проверьте IP (ip a), порт (ss -tulpn | grep 8888) и файрвол (sudo ufw disable)
 
 ---
 
