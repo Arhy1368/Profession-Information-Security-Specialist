@@ -274,7 +274,13 @@ POST /login.html HTTP/1.1
 Host: 192.168.0.1:8888
 Cookie: token=28806649
 
+<details>
+  <summary>Нажмите, чтобы показать секрет</summary>
+
 username=admin&password=f38e440d-ac0d-480f-b674-81b8e7aa45d6
+</details>
+
+
 ```
 
 ---
