@@ -276,7 +276,6 @@ Cookie: token=28806649
 
 <details>
   <summary>Нажмите, чтобы показать секрет</summary>
-
 username=admin&password=f38e440d-ac0d-480f-b674-81b8e7aa45d6
 </details>
 
