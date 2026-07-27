@@ -343,6 +343,8 @@ html
 
 <img width="603" height="98" alt="image" src="https://github.com/user-attachments/assets/c7ef4f4a-41d2-4dad-8858-855375a0e3b1" />
 
+Вердикт: Приложение НЕ МОЖЕТ использоваться для обработки персональных данных и коммерческой тайны.
+
 5. Приказ на сайте: https://fstec.ru/topkarta-sajta
 
 ПРИКАЗ 
