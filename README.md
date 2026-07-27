@@ -143,6 +143,7 @@ enp0s8	192.168.0.1	Внутренняя сеть
 
 <img width="1919" height="546" alt="image" src="https://github.com/user-attachments/assets/753bfaed-a8c2-457d-83a1-747dfa3cdcbc" />
 
+
 5. Эксплуатация — успешное проведение атак.
 
 5.1 Перехват трафика (CWE-319)
