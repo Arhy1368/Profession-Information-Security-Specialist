@@ -306,17 +306,42 @@ html
 
 1  CWE-319     Отсутствие HTTPS                    🔴 Critical     ✅ Подтверждена
 
+<img width="464" height="510" alt="image" src="https://github.com/user-attachments/assets/9c6e049e-d21f-447a-b3e4-022fc6fedabf" />
+
 2  CWE-352     Отсутствие CSRF-защиты              🔴 Critical     ✅ Подтверждена
+
+<img width="994" height="307" alt="image" src="https://github.com/user-attachments/assets/ccc7aa61-713f-4faa-b40f-4ee4ae67a5d4" />
+
 
 3  CWE-307     Брутфорс (нет ограничений)          🟡 High         ✅ Подтверждена
 
+<img width="990" height="304" alt="image" src="https://github.com/user-attachments/assets/b8565194-3a87-4e5d-9e39-d5d4323a6043" />
+
+На странице нет:
+
+Защиты от автоматического подбора паролей (CAPTCHA)
+
+Ограничения количества попыток
+
+Блокировки после неудачных попыток
+
+Задержки между попытками
+
 4  CWE-862     Отсутствие разграничения доступа    🔴 Critical     ✅ Подтверждена
+
+<img width="785" height="161" alt="image" src="https://github.com/user-attachments/assets/93ad28cc-8b99-4c29-ab21-79776feba289" />
 
 5  CWE-269     Повышение привилегий                🔴 Critical     ✅ Подтверждена
 
+<img width="1199" height="248" alt="image" src="https://github.com/user-attachments/assets/57e6ce2e-5c62-42a9-a409-8fafd76e2985" />
+
 6  CWE-200     Раскрытие информации                🟡 High         ✅ Подтверждена
 
+<img width="1220" height="135" alt="image" src="https://github.com/user-attachments/assets/19d08708-5e36-489b-99ed-86b06d278c30" />
+
 7  CWE-434     Неограниченная загрузка файлов      🟡 High         ✅ Подтверждена
+
+<img width="603" height="98" alt="image" src="https://github.com/user-attachments/assets/c7ef4f4a-41d2-4dad-8858-855375a0e3b1" />
 
 5. Приказ на сайте: https://fstec.ru/topkarta-sajta
 
@@ -335,7 +360,7 @@ html
 
 Мера                Требование                   Реальность                             Статус  
 
-ИАФ.1    Идентификация пользователей             Пароль в открытом виде                   ❌ 
+ИАФ.1    Идентификация пользователей             Реализована, но пароль в открытом виде   ❌ 
 
 ИАФ.4    Управление средствами аутентификации    Пароль не хеширован, нет смены           ❌ 
 
