@@ -110,9 +110,9 @@ cat /opt/sk/password.txt
 
 Результат: Пароль администратора: f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
-<img width="796" height="114" alt="image" src="https://github.com/user-attachments/assets/96f2b573-a69c-45f1-a033-f57a55688ac1" />
-
 3. Сканирование — обнаружение открытых портов и сервисов.
+
+<img width="796" height="114" alt="image" src="https://github.com/user-attachments/assets/96f2b573-a69c-45f1-a033-f57a55688ac1" />
 
 Настройка Kali
 
