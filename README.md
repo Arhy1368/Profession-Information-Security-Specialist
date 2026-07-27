@@ -187,30 +187,33 @@ curl "http://192.168.0.1:8888/api/ping?host=127.0.0.1;id"
 Вывод: Command Injection не обнаружена.
 
 5.2 Path Traversal (CWE-22)
+
 Действие: Выполнен запрос для проверки возможности обхода каталогов:
 
 curl "http://192.168.0.1:8888/api/file?path=../../../../etc/passwd"
+
 Результат: 404 Not Found — эндпоинт не существует.
 
 Вывод: Path Traversal через API не обнаружен.
 
 5.3 Проверка страниц и API
-Выполнена проверка доступности страниц без авторизации:
 
-curl -I http://192.168.0.1:8888/clients
-curl -I http://192.168.0.1:8888/admin
-curl -I http://192.168.0.1:8888/documents
-curl -I http://192.168.0.1:8888/login
-Результаты:
+Выполнена проверка доступности страниц без авторизации      URL	Статус
 
-URL	Статус
-/clients	303 See Other → /login.html
-/admin	404 Not Found
-/documents	404 Not Found
-/login	405 Method Not Allowed
+                                                            Результаты
+                                                            
+curl -I http://192.168.0.1:8888/clients                     /clients	303 See Other → /login.html
+
+curl -I http://192.168.0.1:8888/admin                       /admin	404 Not Found
+
+curl -I http://192.168.0.1:8888/documents                   /documents	404 Not Found
+
+curl -I http://192.168.0.1:8888/login                       /login	405 Method Not Allowed
+
 Вывод: Страницы без входа недоступны, реализована базовая защита.
 
 5.4 Перехват трафика (CWE-319)
+
 Выполнен перехват сетевого трафика:
 
 sudo tcpdump -i eth0 -A port 8888
