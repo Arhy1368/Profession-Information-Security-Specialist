@@ -4,7 +4,7 @@
 
 <img width="1263" height="521" alt="image" src="https://github.com/user-attachments/assets/db24e9a4-670b-4cb2-9560-2fd217489a40" />
 
-                                                      🛡️ Описание проекта
+🛡️ Описание проекта
 
 В рамках итоговой работы по модулю «Защищённый контур» был проведён 
 
