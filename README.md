@@ -56,7 +56,6 @@ Kali Linux           Kali 2024.x      Атакующий           192.168.0.2  
 
 <img width="1919" height="950" alt="image" src="https://github.com/user-attachments/assets/30fc7718-f2da-4357-a2bb-361b513167d8" />
 
-
 📋Пошаговое выполнение работы:
 
 1. Развертывание — импорт OVA, настройка сети, вход в систему.
