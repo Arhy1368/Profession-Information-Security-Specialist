@@ -426,45 +426,69 @@ f38e440d-ac0d-480f-b674-81b8e7aa45d6
 Этот пароль генерируется автоматически при первом запуске приложения.
 
 🔧 3. Управление приложением
+
 Проверка статуса сервиса
+
 bash
 sudo systemctl status sk.service
+
 Запуск / остановка
+
 bash
 sudo systemctl start sk.service
+
 sudo systemctl stop sk.service
+
 sudo systemctl restart sk.service
+
 Проверка порта
 bash
 sudo ss -tulpn | grep 8888
 
 📁 4. Файлы приложения
+
 Файл	Назначение
+
 /opt/sk/password.txt	Пароль администратора (в открытом виде)
+
 /opt/sk/sk.bin	Исполняемый файл приложения
+
 /opt/sk/data/users.db	База данных пользователей (SQLite)
+
 /opt/sk/data/clients.db	База данных клиентов (SQLite)
+
 /opt/sk/static/	Статические файлы (CSS, JS)
 
 🛠️ 5. Если пароль admin потерян
+
 Вариант A: Через SQLite (если установлен)
+
 `bash
 sudo apt install sqlite3 -y
 sudo sqlite3 /opt/sk/data/users.db
+
 Внутри SQLite:
 `sql
 UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font> WHERE username = 'admin';
 .quit
+
 Вариант B: Через файл password.txt
+
 bash
 sudo nano /opt/sk/password.txt
+
 Просто замените старый пароль на новый и сохраните.
 
 📋 6. Сводная таблица
+
 Доступ	Логин	Пароль
+
 ОС (Ubuntu)	system	Задаётся при первом входе
+
 Веб-приложение	admin	В /opt/sk/password.txt
+
 🚀 Проверка работоспособности
+
 Вход в ОС: system / пароль
 
 Проверка сервиса: sudo systemctl status sk.service
@@ -474,10 +498,15 @@ sudo nano /opt/sk/password.txt
 Вход в веб: http://192.168.0.1:8888 → admin / пароль
 
 ❓ Частые вопросы
-Вопрос	Ответ
-Не могу войти в ОС	Используйте сброс через GRUB (режим восстановления)
-Не могу найти пароль admin	cat /opt/sk/password.txt или проверьте users.db
-Страница не открывается	Проверьте IP (ip a), порт (ss -tulpn | grep 8888) и файрвол (sudo ufw disable)
+
+Вопрос	                                 Ответ
+
+Не могу войти в ОС	                     Используйте сброс через GRUB (режим восстановления)
+
+Не могу найти пароль admin	             cat /opt/sk/password.txt или проверьте users.db
+
+Страница не открывается	                 Проверьте IP (ip a), порт (ss -tulpn | grep 8888) и файрвол (sudo ufw disable)
+
 
 ---
 
@@ -487,4 +516,4 @@ sudo nano /opt/sk/password.txt
 
 Паничевский А.В.
 
-Дата: 26.07.2026
+Дата: 27.07.2026
