@@ -183,9 +183,15 @@ sudo tcpdump -i eth0 -A port 8888
 
 Пароль передается в открытом виде
 
+<img width="551" height="265" alt="image" src="https://github.com/user-attachments/assets/b39db496-26bc-4da8-b2e9-3d1aa419aa49" />
+
 Токен сессии передается в Cookie в открытом виде
 
+<img width="548" height="104" alt="image" src="https://github.com/user-attachments/assets/3ccbe3c9-0dbe-486b-8c30-670380d2fa22" />
+
 Используется протокол HTTP, а не HTTPS
+
+<img width="551" height="90" alt="image" src="https://github.com/user-attachments/assets/5fafe995-d0b7-4eb4-aa9e-49947b6cbf78" />
 
 Вывод: Данные передаются по незащищенному каналу, что является уязвимостью CWE-319.
 
