@@ -146,7 +146,7 @@ nmap -sV -p- 192.168.0.1
 
 curl "http://192.168.0.1:8888/api/ping?host=127.0.0.1;id"               404 Not Found — эндпоинт не существует.
  
-Вывод: Command Injection не обнаружена.
+⚠️ Вывод: Command Injection не обнаружена.
 
 4.2 Path Traversal (CWE-22)
 
@@ -154,7 +154,7 @@ curl "http://192.168.0.1:8888/api/ping?host=127.0.0.1;id"               404 Not 
                                                                         
 curl "http://192.168.0.1:8888/api/file?path=../../../../etc/passwd"      404 Not Found — эндпоинт не существует.
 
-Вывод: Path Traversal через API не обнаружен.
+⚠️ Вывод: Path Traversal через API не обнаружен.
 
 4.3 Проверка страниц и API
 
@@ -168,7 +168,7 @@ curl -I http://192.168.0.1:8888/documents                   /documents	404 Not F
 
 curl -I http://192.168.0.1:8888/login                       /login	405 Method Not Allowed
 
-Вывод: Страницы без входа недоступны, реализована базовая защита.
+⚠️ Вывод: Страницы без входа недоступны, реализована базовая защита.
 
 <img width="1919" height="546" alt="image" src="https://github.com/user-attachments/assets/753bfaed-a8c2-457d-83a1-747dfa3cdcbc" />
 
@@ -203,26 +203,21 @@ html
 
 Результат: Приложение экранирует HTML-спецсимволы (`&lt;script&gt;alert(1)&lt;/script&gt;`).
 
-Вывод: XSS не обнаружен.
+⚠️ Вывод: XSS не обнаружен. Приложение экранировало введённый текст, превратив его в безопасный HTML-код
 
 5.3 CSRF-защита (CWE-352)
 
 Проверка HTML-кода: В формах отсутствуют CSRF-токены.
 
-html
+<img width="468" height="95" alt="image" src="https://github.com/user-attachments/assets/b67c92dc-8226-4cf0-ba82-afc91320bf51" />
 
-<form action="/administrate/delete" method="post">
-    <input type="hidden" name="login" value="admin">
-    <button>Удалить</button>
-</form>
-
-Вывод: CSRF-защита отсутствует.
+⚠️ Вывод: CSRF-защита отсутствует.
 
 5.4 Брутфорс (CWE-307)
 
 Проверка: Нет ограничения количества попыток входа.
 
-Вывод: Приложение уязвимо к брутфорсу.
+⚠️ Вывод: Приложение уязвимо к брутфорсу.
 
 Их результаты:
 
@@ -240,7 +235,7 @@ html
 | `/login` | `405 Method Not Allowed` |
 | `/register` | `404 Not Found` |
 
-Вывод: Страница `/clients` существует и перенаправляет на вход.
+⚠️ Вывод: Страница `/clients` существует и перенаправляет на вход.
 
 Найденные уязвимости (CWE), что нашли
 
@@ -418,7 +413,7 @@ html
 
 7.8 Внедрить логирование действий пользователей                           🟡 High 
 
-🎯 Вывод:
+⚠️ Вывод:
 
 Приложение "Защищенный контур" в текущем виде:
 
@@ -474,7 +469,7 @@ bash
 
 cat /opt/sk/password.txt
 
-Пример вывода:
+🎯 Пример вывода:
 
 f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
