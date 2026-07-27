@@ -26,14 +26,7 @@
 
 🧩 Используемые технологии
 
-Компонент           Технология
-
-Гипервизор         VirtualBox 7.2
-Целевая ОС         Ubuntu Linux (OVA-образ)
-Атакующая ОС       Kali Linux
-Инструменты        Nmap, Curl, Tcpdump, Systemd, Bash
-Язык               Python (не требовался, всё через Bash/Curl)
-
+<img width="478" height="161" alt="image" src="https://github.com/user-attachments/assets/891205d6-7149-42fd-9d50-1021d18bdceb" />
 
 <img width="720" height="848" alt="Снимок экрана 2026-07-25 172748" src="https://github.com/user-attachments/assets/735dd7c0-e096-44ca-8c76-0c0bf06948dc" />
 <img width="723" height="850" alt="Снимок экрана 2026-07-25 172803" src="https://github.com/user-attachments/assets/7dbf7047-85eb-4a51-95bd-74796e4ded73" />
@@ -42,11 +35,7 @@
 
 🏗️ Архитектура стенда
 
-Машина               ОС               Роль                IP-адрес     Сеть
-
-Защищённый контур    Ubuntu (OVA)     Сервер приложения   192.168.0.1  Внутренняя (intnet)
-
-Kali Linux           Kali 2024.x      Атакующий           192.168.0.2  Внутренняя (intnet)
+<img width="660" height="117" alt="image" src="https://github.com/user-attachments/assets/2842a365-1d2a-4e89-94bb-a2c8327450df" />
 
 *Тут видны паратметры разработчика вызовом через F12, уровень доступа у всех разный.
 
@@ -374,20 +363,6 @@ html
 
 🌀    Если пароль потерян — сбросьте через режим восстановления GRUB.
 
-
-
-Как узнать пароль admin:
-
-bash
-
-    cat /opt/sk/password.txt
-
-🎯 Пример вывода:
-
-f38e440d-ac0d-480f-b674-81b8e7aa45d6
-
-Этот пароль генерируется автоматически при первом запуске приложения.
-
 12. Управление приложением 🔧
 
 Проверка статуса сервиса
@@ -418,7 +393,17 @@ bash
 
 /opt/sk/password.txt	Пароль администратора (в открытом виде)
 
+Как узнать пароль admin:
+
+bash
+
+    cat /opt/sk/password.txt
+
+🎯 Пример вывода:
+
 f38e440d-ac0d-480f-b674-81b8e7aa45d6
+
+Этот пароль генерируется автоматически при первом запуске приложения.
 
 /opt/sk/sk.bin	Исполняемый файл приложения
 
@@ -430,13 +415,7 @@ f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
 🚀 Проверка работоспособности
 
-Вход в ОС: system / пароль
-
-Проверка сервиса: sudo systemctl status sk.service
-
-Чтение пароля admin: cat /opt/sk/password.txt
-
-Вход в веб: http://192.168.0.1:8888 → admin / пароль
+Вход в веб: http://192.168.0.1:8888 → admin / пароль из файла
 
 Вопрос	                                 Ответ
 
@@ -445,7 +424,6 @@ f38e440d-ac0d-480f-b674-81b8e7aa45d6
 Не могу найти пароль admin	             cat /opt/sk/password.txt или проверьте users.db
 
 Страница не открывается	                 Проверьте IP (ip a), порт (ss -tulpn | grep 8888) и файрвол (sudo ufw disable)
-
 
 👤 Исполнитель Arhy
 
