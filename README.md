@@ -1,6 +1,6 @@
-                                          📌 README: Итоговая работа «Защищённый контур»
+📌 README: Итоговая работа «Защищённый контур»
 
-                                           Анализ безопасности корпоративного приложения
+Анализ безопасности корпоративного приложения
 
 <img width="1263" height="521" alt="image" src="https://github.com/user-attachments/assets/db24e9a4-670b-4cb2-9560-2fd217489a40" />
 
@@ -60,7 +60,7 @@ Kali Linux           Kali 2024.x      Атакующий           192.168.0.2  
 
 1. Развертывание — импорт OVA, настройка сети, вход в систему.
 
-Все команды, которые вы выполняли, как нашли (команды)
+Все команды, которые вы выполняли:
 
 1.1 Импорт OVA
 
@@ -72,7 +72,7 @@ Kali Linux           Kali 2024.x      Атакующий           192.168.0.2  
 
 Проверка IP-адресов:
 
-ip a
+    ip a
 
 Результат:
 
@@ -90,15 +90,17 @@ enp0s8	192.168.0.1	Внутренняя сеть
 
 Выполнена проверка статуса сервиса:
 
-sudo systemctl status sk.service
-
+    sudo systemctl status sk.service
+    
+    sudo systemctl start sk.service
+    
 Результат: Сервис активен (active running).
 
 2.2 Проверка порта
 
 Выполнена проверка открытого порта:
 
-sudo ss -tulpn | grep 8888
+    sudo ss -tulpn | grep 8888
 
 Результат: Порт 8888 открыт и слушает на всех интерфейсах (LISTEN 0.0.0.0:8888).
 
@@ -106,7 +108,7 @@ sudo ss -tulpn | grep 8888
 
 Выполнено чтение файла с паролем:
 
-cat /opt/sk/password.txt
+    cat /opt/sk/password.txt
 
 Результат: Пароль администратора: f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
@@ -118,11 +120,11 @@ cat /opt/sk/password.txt
 
 Для обеспечения связи с сервером выполнен вход в ту же сеть:
 
-sudo ifconfig eth0 192.168.0.2 netmask 255.255.255.0 up
+    sudo ifconfig eth0 192.168.0.2 netmask 255.255.255.0 up
 
 Проверка связи:
 
-ping 192.168.0.1
+    ping 192.168.0.1
 
 Результат: Связь установлена.
 
@@ -130,7 +132,7 @@ ping 192.168.0.1
 
 Выполнено сканирование портов и сервисов:
 
-nmap -sV -p- 192.168.0.1
+    nmap -sV -p- 192.168.0.1
 
 Результат: Порт 8888 открыт, на нем работает приложение «Защищенный контур».
 
@@ -142,31 +144,31 @@ nmap -sV -p- 192.168.0.1
 
 4.1 Command Injection (CWE-20)
 
-Действие: Выполнен запрос для проверки возможности выполнения команд:   Результат:
+Действие: Выполнен запрос для проверки возможности выполнения команд:       Результат:
 
-curl "http://192.168.0.1:8888/api/ping?host=127.0.0.1;id"               404 Not Found — эндпоинт не существует.
+    curl "http://192.168.0.1:8888/api/ping?host=127.0.0.1;id"               404 Not Found — эндпоинт не существует.
  
 ⚠️ Вывод: Command Injection не обнаружена.
 
 4.2 Path Traversal (CWE-22)
 
-Действие: Выполнен запрос для проверки возможности обхода каталогов:     Результат:
+Действие: Выполнен запрос для проверки возможности обхода каталогов:         Результат:
                                                                         
-curl "http://192.168.0.1:8888/api/file?path=../../../../etc/passwd"      404 Not Found — эндпоинт не существует.
+    curl "http://192.168.0.1:8888/api/file?path=../../../../etc/passwd"      404 Not Found — эндпоинт не существует.
 
 ⚠️ Вывод: Path Traversal через API не обнаружен.
 
 4.3 Проверка страниц и API
 
-Выполнена проверка доступности страниц без авторизации      Результаты:
+Выполнена проверка доступности страниц без авторизации                       Результаты:
                                                      
-curl -I http://192.168.0.1:8888/clients                     /clients	303 See Other → /login.html
+    curl -I http://192.168.0.1:8888/clients                                  /clients	303 See Other → /login.html
 
-curl -I http://192.168.0.1:8888/admin                       /admin	404 Not Found
+    curl -I http://192.168.0.1:8888/admin                                    /admin	404 Not Found
 
-curl -I http://192.168.0.1:8888/documents                   /documents	404 Not Found
+    curl -I http://192.168.0.1:8888/documents                                /documents	404 Not Found
 
-curl -I http://192.168.0.1:8888/login                       /login	405 Method Not Allowed
+    curl -I http://192.168.0.1:8888/login                                    /login	405 Method Not Allowed
 
 ⚠️ Вывод: Страницы без входа недоступны, реализована базовая защита.
 
@@ -178,7 +180,8 @@ curl -I http://192.168.0.1:8888/login                       /login	405 Method No
 
 Выполнен перехват сетевого трафика:
 
-sudo tcpdump -i eth0 -A port 8888
+    sudo tcpdump -i eth0 -A port 8888
+    
 Обнаружено:
 
 🔐 Пароль передается в открытом виде
@@ -199,7 +202,7 @@ sudo tcpdump -i eth0 -A port 8888
 
 html
 
-<script>alert(1)</script>
+    <script>alert(1)</script>
 
 Результат: Приложение экранирует HTML-спецсимволы (`&lt;script&gt;alert(1)&lt;/script&gt;`).
 
@@ -453,19 +456,19 @@ html
 
 10. Доступ к веб-приложению 🌐
 
-Параметр	Значение
+Параметр	           Значение
 
-URL	http://192.168.0.1:8888
+URL	                 http://192.168.0.1:8888
 
-Логин	admin
+Логин              	 admin
 
-Пароль	Хранится в файле /opt/sk/password.txt
+Пароль	             Хранится в файле /opt/sk/password.txt
 
 Как узнать пароль admin:
 
 bash
 
-cat /opt/sk/password.txt
+    cat /opt/sk/password.txt
 
 🎯 Пример вывода:
 
@@ -479,23 +482,23 @@ f38e440d-ac0d-480f-b674-81b8e7aa45d6
 
 bash
 
-sudo systemctl status sk.service
+    sudo systemctl status sk.service
 
 Запуск / остановка
 
 bash
 
-sudo systemctl start sk.service
+    sudo systemctl start sk.service
 
-sudo systemctl stop sk.service
+    sudo systemctl stop sk.service
 
-sudo systemctl restart sk.service
+    sudo systemctl restart sk.service
 
 Проверка порта:
 
 bash
 
-sudo ss -tulpn | grep 8888
+    sudo ss -tulpn | grep 8888
 
 12. Файлы приложения 📁
 
@@ -517,15 +520,15 @@ sudo ss -tulpn | grep 8888
 
 bash
 
-sudo apt install sqlite3 -y
+    sudo apt install sqlite3 -y
 
-sudo sqlite3 /opt/sk/data/users.db
+    sudo sqlite3 /opt/sk/data/users.db
 
 Внутри SQLite:
 
 sql
 
-UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font> WHERE username = 'admin';
+    UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font> WHERE username = 'admin';
 
 .quit
 
@@ -533,7 +536,7 @@ UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font
 
 bash
 
-sudo nano /opt/sk/password.txt
+    sudo nano /opt/sk/password.txt
 
 Просто замените старый пароль на новый и сохраните.
 
