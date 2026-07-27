@@ -537,14 +537,12 @@ sudo ss -tulpn | grep 8888
 Вариант A: Через SQLite (если установлен)
 
 `bash
-
 sudo apt install sqlite3 -y
-
 sudo sqlite3 /opt/sk/data/users.db
 
 Внутри SQLite:
-`sql
 
+`sql
 UPDATE users SET password = <font color="#ffeb3b">НОВЫЙ ПАРОЛЬ!</font> WHERE username = 'admin';
 .quit
 
@@ -574,7 +572,6 @@ sudo nano /opt/sk/password.txt
 
 Вход в веб: http://192.168.0.1:8888 → admin / пароль
 
-❓ Частые вопросы
 
 Вопрос	                                 Ответ
 
@@ -584,8 +581,6 @@ sudo nano /opt/sk/password.txt
 
 Страница не открывается	                 Проверьте IP (ip a), порт (ss -tulpn | grep 8888) и файрвол (sudo ufw disable)
 
-
----
 
 👤 Исполнитель Arhy
 
