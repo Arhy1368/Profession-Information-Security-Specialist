@@ -28,7 +28,7 @@
 
 🏗️ Архитектура стенда
 
-<img width="478" height="161" alt="image" src="https://github.com/user-attachments/assets/891205d6-7149-42fd-9d50-10d18bdceb" />
+<img width="716" height="257" alt="Снимок экрана 2026-07-25 173121" src="https://github.com/user-attachments/assets/dda6e587-0c41-4a8d-91dc-691c8da543d6" />
 
 <img width="720" height="848" alt="Снимок экрана 2026-07-25 172748" src="https://github.com/user-attachments/assets/735dd7c0-e096-44ca-8c76-0c0bf06948dc" />
 
