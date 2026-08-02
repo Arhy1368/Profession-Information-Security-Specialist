@@ -154,6 +154,12 @@ enp0s8	192.168.0.1	Внутренняя сеть
 
 <img width="551" height="265" alt="image" src="https://github.com/user-attachments/assets/b39db496-26bc-4da8-b2e9-3d1aa419aa49" />
 
+| Вопрос | Ответ |
+|--------|-------|
+| **Чем опасно?** | Пароль можно перехватить по сети |
+| **Кто может перехватить?** | Любой в той же сети (Wi-Fi, Ethernet) |
+| **Что делать?** | Включить HTTPS |
+
 🍪 Токен сессии передается в Cookie в открытом виде
 
 <img width="548" height="104" alt="image" src="https://github.com/user-attachments/assets/3ccbe3c9-0dbe-486b-8c30-670380d2fa22" />
@@ -202,15 +208,15 @@ html
 | Интерфейс | IP-адрес | Назначение |
 |-----------|----------|------------|
 | `enp0s3` | `10.0.2.15` | NAT (интернет) |
-| `enp0s8` | `192.168.0.1` | Внутренняя сеть |
+| `enp0s8` | `192.168.0.1` | Внутренняя сеть | 
 
-| URL | Статус |
-|-----|--------|
-| `/clients` | `303 See Other` → `/login.html` |
-| `/admin` | `404 Not Found` |
-| `/documents` | `404 Not Found` |
-| `/login` | `405 Method Not Allowed` |
-| `/register` | `404 Not Found` |
+| URL | Статус | 
+|-----|--------| 
+| `/clients` | `303 See Other` → `/login.html` | 
+| `/admin` | `404 Not Found` | 
+| `/documents` | `404 Not Found` | 
+| `/login` | `405 Method Not Allowed` | 
+| `/register` | `404 Not Found` | 
 
 ⚠️ Вывод: Страница `/clients` существует и перенаправляет на вход.
 
