@@ -12,6 +12,8 @@
 
 корпоративной информацией, включая персональные данные клиентов и коммерческую тайну.
 
+🧩 Используемые технологии
+
 Заказчик: Компания Х  
 
 Разработчик: Неизвестен (OVA-образ поставлен «из коробки»)  
@@ -24,15 +26,13 @@
 
 <img width="1858" height="791" alt="image" src="https://github.com/user-attachments/assets/a2a88e8f-23eb-44b8-9c93-cd8e7a6001e6" />
 
-🧩 Используемые технологии
+🏗️ Архитектура стенда
 
 <img width="478" height="161" alt="image" src="https://github.com/user-attachments/assets/891205d6-7149-42fd-9d50-10d18bdceb" />
+
 <img width="720" height="848" alt="Снимок экрана 2026-07-25 172748" src="https://github.com/user-attachments/assets/735dd7c0-e096-44ca-8c76-0c0bf06948dc" />
+
 <img width="723" height="850" alt="Снимок экрана 2026-07-25 172803" src="https://github.com/user-attachments/assets/7dbf7047-85eb-4a51-95bd-74796e4ded73" />
-
-
-
-🏗️ Архитектура стенда
 
 <img width="660" height="117" alt="image" src="https://github.com/user-attachments/assets/2842a365-1d2a-4e89-94bb-a2c8327450df" />
 
