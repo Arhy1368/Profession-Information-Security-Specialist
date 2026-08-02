@@ -158,6 +158,12 @@ enp0s8	192.168.0.1	Внутренняя сеть
 
 <img width="548" height="104" alt="image" src="https://github.com/user-attachments/assets/3ccbe3c9-0dbe-486b-8c30-670380d2fa22" />
 
+| Вопрос | Ответ |
+|--------|-------|
+| **Чем опасно?** | Токен можно перехватить и украсть сессию |
+| **Что можно украсть?** | Все данные, доступные пользователю |
+| **Как защититься?** | HTTPS + Secure, HttpOnly, SameSite |
+
 🖥️ Используется протокол HTTP, а не HTTPS
 
 <img width="551" height="90" alt="image" src="https://github.com/user-attachments/assets/5fafe995-d0b7-4eb4-aa9e-49947b6cbf78" />
