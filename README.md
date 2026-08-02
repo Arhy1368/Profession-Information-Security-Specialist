@@ -27,7 +27,6 @@
 🧩 Используемые технологии
 
 <img width="478" height="161" alt="image" src="https://github.com/user-attachments/assets/891205d6-7149-42fd-9d50-10d18bdceb" />
-
 <img width="720" height="848" alt="Снимок экрана 2026-07-25 172748" src="https://github.com/user-attachments/assets/735dd7c0-e096-44ca-8c76-0c0bf06948dc" />
 <img width="723" height="850" alt="Снимок экрана 2026-07-25 172803" src="https://github.com/user-attachments/assets/7dbf7047-85eb-4a51-95bd-74796e4ded73" />
 
